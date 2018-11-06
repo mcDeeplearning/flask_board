@@ -7,5 +7,10 @@
 - 설정
 ```bash
 $ sudo apt-get update
+# ubuntu에 postgresql을 설치
 $ sudo apt-get install postgresql postgresql-contrib libpq-dev
+# python(flask)에서 postgresql를 사용하기 편하게 도와주는 친구들
+$ pip install psycopg2 psycopg2-binary
+# import 해서 쓸 친구들
+$ pip install Flask-SQLAlchemy Flask-Migrate
 ```
