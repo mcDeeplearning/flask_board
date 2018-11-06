@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
 db = SQLAlchemy()
 
@@ -9,3 +10,9 @@ class Post(db.Model):
     title = db.Column(db.String)
     content = db.Column(db.Text)
     created_at = db.Column(db.DateTime)
+    
+    # 생성자
+    def __init__(self,title,content):
+        self.title = title
+        self.content = content
+        self.created_at = datetime.datetime.now()
