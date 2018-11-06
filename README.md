@@ -31,3 +31,8 @@ ubuntu# \q
 - flask db initialize : `flask db init`
     - `migrations`폴더 생성
 - models.py 파일의 현재 상태를 반영 : `flask db migrate`
+    - `migrations`폴더에 파일 생성
+- DB에 반영 : `flask db upgrade`
+- 실제로 DB에서 확인하기
+    - `psql <이름>` 
+    - `ubuntu# \d <테이블이름>`
