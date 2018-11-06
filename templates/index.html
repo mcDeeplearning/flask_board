@@ -2,10 +2,14 @@
 {% block body_block %}
     <h1>여기는 인덱스 입니다.</h1>
     {% for post in posts %}
-        <h1>{{post.id}}</h1>
-        <h2>{{post.title}}</h2>
-        <h3>{{post.content}}</h3>
-        <h4>{{post.created_at}}</h4>
-        <a href="/posts/{{post.id}}">글보기</a>
+        
+        <div class="card" style="width: 18rem;">
+          <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.content}}</p>
+            <a href=""/posts/{{post.id}}"" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
     {% endfor %}
 {% endblock %}    
