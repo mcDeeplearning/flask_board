@@ -22,3 +22,12 @@ $ psql
 ubuntu# CREATE DATABASE <이름> WITH template=template0 encoding='UTF8';
 ubuntu# \q 
 ```
+
+### `models.py`설정
+### `app.py` 설정
+
+### 마이그레이션
+
+- flask db initialize : `flask db init`
+    - `migrations`폴더 생성
+- models.py 파일의 현재 상태를 반영 : `flask db migrate`
