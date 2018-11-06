@@ -14,3 +14,11 @@ $ pip install psycopg2 psycopg2-binary
 # import 해서 쓸 친구들
 $ pip install Flask-SQLAlchemy Flask-Migrate
 ```
+
+- DB 설정
+```bash
+# postresql 실행
+$ psql
+ubuntu# CREATE DATABASE <이름> WITH template=template0 encoding='UTF8';
+ubuntu# \q 
+```

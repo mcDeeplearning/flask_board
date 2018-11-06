@@ -1,0 +1,11 @@
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
+class Post(db.Model):
+    # 데이터베이스 테이블설정
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer)
+    title = db.Column(db.String)
+    content = db.Column(db.Text)
+    created_at = db.Column(db.DateTime)
