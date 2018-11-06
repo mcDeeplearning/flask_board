@@ -31,4 +31,10 @@ def create():
     
     return render_template('create.html',post=post)
     
+@app.route('/posts/<int:id>')
+def read(id):
+    post = Post.query.get(id)
+    # SELECT * FROM posts WHERE id=1;
+    return render_template('read.html',post=post)
+    
     
