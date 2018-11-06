@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -13,4 +13,20 @@ migrate = Migrate(app,db)
 
 @app.route('/')
 def index():
-    return "hello"
+    return render_template('index.html')
+
+@app.route('/posts/new')
+def new():
+    return render_template('new.html')
+
+@app.route('/posts/create')
+def create():
+    title = request.args.get('title')
+    content = request.args.get('content')
+    post = Post(title=title, content=content)
+    db.session.add(post)
+    db.session.commit()
+    
+    return render_template('create.html')
+    
+    
