@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 {% block body_block %}
     <h1>여기는 인덱스 입니다.</h1>
+    <div class='row'>
     {% for post in posts %}
-        
-        <div class="card" style="width: 18rem;">
-          <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
-          <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.content}}</p>
-            <a href=""/posts/{{post.id}}"" class="btn btn-primary">Go somewhere</a>
-          </div>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
+              <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.content}}</p>
+                <a href="/posts/{{post.id}}" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
         </div>
     {% endfor %}
+    </div>
 {% endblock %}    
