@@ -36,3 +36,13 @@ ubuntu# \q
 - 실제로 DB에서 확인하기
     - `psql <이름>` 
     - `ubuntu# \d <테이블이름>`
+    - 
+
+# 배포!!!
+
+```bash
+echo 'export DATABASE_URL="postgresql:///board"' >> ~/.bashrc
+```
+
+
+
