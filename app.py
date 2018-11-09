@@ -41,8 +41,9 @@ def create():
 @app.route('/posts/<int:id>')
 def read(id):
     post = Post.query.get(id)
+    comments =Comment.query.all()
     # SELECT * FROM posts WHERE id=1;
-    return render_template('read.html',post=post)
+    return render_template('read.html',post=post, comments=comments)
     
 @app.route('/posts/<int:id>/delete') 
 def delete(id):
@@ -68,3 +69,19 @@ def update(id):
     db.session.commit()
     
     return redirect('/posts/{}'.format(id))
+    
+@app.route('/posts/<int:post_id>/comments')
+def comments(post_id):
+    content = request.args.get('content')
+    comment = Comment(content)
+    post = Post.query.get(post_id)
+    post.comments.append(comment)
+    db.session.add(comment)
+    db.session.commit()
+    
+    return redirect('/')
+
+    
+    
+    
+    
