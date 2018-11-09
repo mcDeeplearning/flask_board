@@ -6,11 +6,11 @@
     <h1>{{post.created_at}}</h1>
     <a href="/posts/{{post.id}}/delete">삭제</a>
     <a href="/posts/{{post.id}}/edit">수정</a>
-    <form action="/posts/{{post.id}}/comments">
+    <form action="/posts/{{post.id}}/comments" method='post'>
         <input type="text" name="content"/>
         <input type='submit'/>
     </form>
-    {% for comment in comments %}
+    {% for comment in post.comments %}
         <p>{{comment.content}}</p>
     {% endfor %}
 {% endblock %} 
