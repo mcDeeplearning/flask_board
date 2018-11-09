@@ -7,8 +7,8 @@ import os
 
 app = Flask(__name__)
 # DB 설정
-# app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql:///board'
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql:///board'
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 db.init_app(app)
 migrate = Migrate(app,db)
@@ -17,7 +17,7 @@ migrate = Migrate(app,db)
 def index():
     # posts = Post.query.all()
     # SELECT * FROM posts;
-    posts = Post.query.order_by(Post.id.desc()).all()
+    posts = Post.query.all()
     # SELECT * FROM posts ORDER BY id DESE;
     return render_template('index.html',posts=posts)
 
