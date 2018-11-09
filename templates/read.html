@@ -7,10 +7,13 @@
     <a href="/posts/{{post.id}}/delete">삭제</a>
     <a href="/posts/{{post.id}}/edit">수정</a>
     <form action="/posts/{{post.id}}/comments" method='post'>
-        <input type="text" name="content"/>
+        작성자 : <input type="text" name="creator" />
+        댓글 : <input type="text" name="content"/>
         <input type='submit'/>
     </form>
     {% for comment in post.comments %}
-        <p>{{comment.content}}</p>
+        <p>{{comment.creator}} : {{comment.content}}</p>
+        <p>{{comment.created_at}}</p>
+        <a href="/comment/{{comment.id}}/delete">댓글삭제</a>
     {% endfor %}
 {% endblock %} 

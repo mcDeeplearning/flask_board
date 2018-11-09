@@ -72,15 +72,23 @@ def update(id):
 @app.route('/posts/<int:post_id>/comments',methods=['POST'])
 def comments(post_id):
     content = request.form.get('content')
-    comment = Comment(content)
+    creator = request.form.get('creator')
+    comment = Comment(content,creator)
     post = Post.query.get(post_id)
     post.comments.append(comment)
     db.session.add(comment)
     db.session.commit()
     
     return redirect('/')
-
     
+@app.route('/comment/<int:id>/delete')
+def comment_delete(id):
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    
+    return redirect('/')
+
     
     
     

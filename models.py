@@ -23,9 +23,13 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))  
+    created_at = db.Column(db.DateTime)
+    creator = db.Column(db.String)
     
-    def __init__(self,content):
+    def __init__(self,content,creator):
         self.content = content
+        self.created_at = datetime.datetime.now()
+        self.creator = creator
 
 
 
